@@ -1,0 +1,96 @@
+import java.io.IOException;
+import java.util.Scanner;
+
+public class Main {
+ 
+    public static void main(String[] args) throws IOException {
+        Scanner ler = new Scanner(System.in);
+        Pokemons pokemons = new Pokemons();
+        for (int i = ler.nextInt(); i > 0 ; i-- ) {
+            pokemons.setBonus(ler.nextInt());
+            pokemons.setAi1(ler.nextInt());
+            pokemons.setDi1(ler.nextInt());
+            pokemons.setLi1(ler.nextInt());
+            pokemons.setAi2(ler.nextInt());
+            pokemons.setDi2(ler.nextInt());
+            pokemons.setLi2(ler.nextInt());
+            if(pokemons.batalha() == 1) {
+                System.out.println("Dabriel");
+            } else if (pokemons.batalha() == 2) {
+                System.out.println("Guarte");
+            } else if (pokemons.batalha() == 3) {
+                System.out.println("empate");
+            }
+
+
+        }
+    }
+ 
+}
+
+class Pokemons {
+    private int Ai1;
+    private int Ai2;
+    private int Di1;
+    private int Di2;
+    private int Li1;
+    private int Li2;
+    private int bonus;
+    private int b1;
+    private int b2;
+
+
+    public void setAi1(int ai1) {
+        this.Ai1 = ai1;
+    }
+
+    public void setAi2(int ai2) {
+         Ai2 = ai2;
+    }
+
+    public void setDi1(int di1) {
+        Di1 = di1;
+    }
+
+    public void setDi2(int di2) {
+        Di2 = di2;
+    }
+
+    public void setLi1(int li1) {
+        Li1 = li1;
+    }
+
+    public void setLi2(int li2) {
+        Li2 = li2;
+    }
+
+    public void setBonus(int bonus) {
+        this.bonus = bonus;
+    }
+
+    public int batalha() {
+        if ((this.Li1 % 2) == 0) {
+             this.b1 = bonus;
+        } else {
+            this.b1 = 0;
+        }
+
+        if ((this.Li2 % 2) == 0) {
+            this.b2 = bonus;
+        } else {
+            this.b2 = 0;
+        }
+
+        int V1 = ((this.Ai1 + this.Di1) / 2 + b1 );
+        int V2 = ((this.Ai2 + this.Di2) / 2 + b2 );
+
+        if (V1 > V2) {
+            return 1;
+        } else if (V2 > V1) {
+            return 2;
+        } else {
+            return 3;
+        }
+
+    }
+}
