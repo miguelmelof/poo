@@ -1,0 +1,44 @@
+import java.io.IOException;
+import java.util.Scanner;
+
+public class Main {
+ 
+    public static void main(String[] args) throws IOException {
+    Scanner ler = new Scanner(System.in);
+        Turistas turistas = new Turistas();
+        String sentido = ler.next();
+
+        while (!"ABEND".equals(sentido)) {
+            turistas.viagem(sentido, ler.nextInt());
+            sentido = ler.next();
+        }
+        System.out.println(turistas.getNumeroDeTuristasFora());
+        System.out.println(turistas.getNumeroDeJeepsFora());
+ 
+    }
+ 
+}
+class Turistas {
+    private int numeroDeTuristasFora = 0;
+    private int NumeroDeJeepsFora = 0;
+    private String IdaOuVolta;
+
+    public void viagem (String IoV, int turistasnNaoIdentificados2 ) {
+        this.IdaOuVolta = IoV;
+        if (IdaOuVolta.equals("SALIDA") ) {
+            numeroDeTuristasFora += turistasnNaoIdentificados2;
+            NumeroDeJeepsFora += 1;
+        } else if (IdaOuVolta.equals("VUELTA")) {
+            numeroDeTuristasFora -= turistasnNaoIdentificados2;
+            NumeroDeJeepsFora -= 1;
+        }
+    }
+
+    public int getNumeroDeJeepsFora() {
+        return NumeroDeJeepsFora;
+    }
+
+    public int getNumeroDeTuristasFora() {
+        return numeroDeTuristasFora;
+    }
+}
