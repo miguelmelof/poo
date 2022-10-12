@@ -1,0 +1,26 @@
+import java.io.IOException;
+import java.util.Scanner;
+public class Main {
+    public static void main(String[] args) throws IOException {
+        Scanner ler = new Scanner(System.in);
+        Garçom garçom = new Garçom();
+        int a = ler.nextInt();
+        for (int i = 0; i < a; i++) {
+            garçom.entrega(ler.nextInt(), ler.nextInt());
+        }
+        System.out.println(garçom.getCoposQuebrados());
+    }
+}
+class Garçom {
+    private int coposQuebrados = 0;
+
+    public void entrega(int Latas, int Copos) {
+        if(Latas > Copos) {
+        this.coposQuebrados += Copos;
+        }
+    }
+
+    public int getCoposQuebrados() {
+        return coposQuebrados;
+    }
+}
