@@ -1,0 +1,15 @@
+import java.io.IOException;
+import java.util.Scanner;
+
+public class Main {
+ 
+    public static void main(String[] args) throws IOException {
+        Scanner ler = new Scanner(System.in);
+        Preços lanches = new Preços();
+        lanches.setCodigo(ler.nextInt());
+        lanches.setQuantidade(ler.nextInt());
+        System.out.printf("Total: R$ %.2f\n",lanches.getpreco());
+ 
+    }
+ 
+}
