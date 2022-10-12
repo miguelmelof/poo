@@ -13,3 +13,39 @@ public class Main {
     }
  
 }
+
+class Preços {
+    private double CachorroQuente = 4.00;
+    private double Xsalada = 4.50;
+    private double Xbacon = 5.00;
+    private  double Torradasimples = 2.00;
+    private double refrigerante = 1.5;
+    private int quantidade;
+    private int codigo;
+
+    public void setCodigo(int codigo) {
+        this.codigo = codigo;
+    }
+
+    public void setQuantidade(int quantidade) {
+        this.quantidade = quantidade;
+    }
+
+    public double getpreco() {
+        if(codigo == 1) {
+            return (CachorroQuente * quantidade);
+        } else if (codigo == 2) {
+            return (Xsalada * quantidade);
+        }   else if (codigo == 3) {
+            return (Xbacon * quantidade);
+        }   else if (codigo == 4) {
+            return (Torradasimples * quantidade);
+        }   else if (codigo == 5) {
+            return (refrigerante * quantidade);
+        } else {
+            return 0;
+        }
+
+    }
+
+}
